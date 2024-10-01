@@ -1,0 +1,133 @@
+<div class="container skills-section text-center py-5">
+    <h2 class="text-center mb-5">My Skills</h2>
+    
+    <div class="row g-4" id="skills-container">
+    </div>
+    <div class="container services-section py-5">
+        <h2 class="text-center mb-5">Our Professional Services</h2>
+        <p class="text-center mb-4 text-muted">We offer a wide range of professional services tailored to your needs.</p>
+    
+        <div class="row g-4" id="services-container">
+        </div>
+    </div>
+</div>
+<script>
+
+$(document).ready(function () {
+    
+  const skillsData = [
+  {
+    name: "HTML5",
+    icon: "fab fa-html5",
+    description: "Expertise in crafting semantic, SEO-friendly, and accessible web pages.",
+  },
+  {
+    name: "CSS3",
+    icon: "fab fa-css3-alt",
+    description: "Proficient in CSS techniques like Flexbox, Grid, and responsive design.",
+  },
+  {
+    name: "CSS Animation",
+    icon: "fas fa-play-circle",
+    description: "Skilled in creating engaging animations using CSS transitions and keyframes.",
+  },
+  {
+    name: "JavaScript",
+    icon: "fab fa-js",
+    description: "Skilled in creating dynamic, interactive applications using JavaScript.",
+  },
+  {
+    name: "jQuery",
+    icon: "fas fa-code",
+    description: "Proficient in using jQuery for DOM manipulation and event handling.",
+  },
+  {
+    name: "Bootstrap",
+    icon: "fab fa-bootstrap",
+    description: "Expert in creating responsive designs with the Bootstrap framework.",
+  },
+  {
+    name: "Handlebars",
+    icon: "fas fa-paint-brush",
+    description: "Creating dynamic templates and views using Handlebars.js.",
+  },
+];
+
+function renderSkills(skills) {
+  const $skillsContainer = $("#skills-container");
+  $skillsContainer.empty();
+  var skillCard = ''
+  $.each(skills, function (index, skill) {
+     skillCard += `
+                <div class="col-md-4 col-sm-6">
+                    <div class="skill-box p-4 shadow-sm">
+                        <i class="${skill.icon} fa-4x mb-3"></i>
+                        <h5>${skill.name}</h5>
+                        <p>${skill.description}</p>
+                    </div>
+                </div>
+            `;
+          });
+          $skillsContainer.html(skillCard);
+}
+
+const servicesData = [
+    {
+        name: "Web Development",
+        icon: "fas fa-code",
+        description: "We build responsive, high-performance websites using HTML, CSS, JavaScript, and modern frameworks like React and Bootstrap to enhance your online presence."
+    },
+    {
+        name: "Front-End Development",
+        icon: "fas fa-laptop-code",
+        description: "Creating dynamic user interfaces and engaging experiences with HTML, CSS, and JavaScript frameworks."
+    },
+    {
+        name: "Back-End Development",
+        icon: "fas fa-server",
+        description: "Developing robust server-side applications and RESTful APIs using Node.js and Express for seamless data management."
+    },
+    {
+        name: "Template Engineering",
+        icon: "fas fa-paint-brush",
+        description: "Building dynamic web applications with Handlebars for efficient templating and rendering."
+    },
+    {
+        name: "Responsive Design",
+        icon: "fas fa-mobile-alt",
+        description: "Ensuring your website is accessible and performs well on all devices through responsive design techniques using CSS and Bootstrap."
+    },
+    {
+        name: "Animation and Interactivity",
+        icon: "fas fa-play-circle",
+        description: "Enhancing user engagement with animations and interactions using CSS and jQuery."
+    }
+];
+
+
+function renderServices(services) {
+  const $servicesContainer = $("#services-container");
+  $servicesContainer.empty();
+  var serviceCard = ''
+  $.each(services, function (index, service) {
+     serviceCard += `
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card p-4 shadow-sm text-center">
+                        <i class="${service.icon} fa-3x mb-3 text-primary"></i>
+                        <h5 class="mb-3">${service.name}</h5>
+                        <p>${service.description}</p>
+                    </div>
+                </div>
+            `;
+          });
+          $servicesContainer.html(serviceCard);
+}
+
+
+  renderServices(servicesData);
+  renderSkills(skillsData);
+
+});
+
+
+</script>

@@ -1,0 +1,62 @@
+<div class="container projects-section">
+  <h2 class="text-center mb-5 fw-bold">My Projects</h2>
+
+  <div class="row row-cols-1 row-cols-md-2 g-4" id="projects-container">
+  </div>
+</div>
+
+<script>
+$(document).ready(function () {
+  const projectsData = [
+      {
+          title: "Light Weight Protein",
+          description: "A comprehensive webpage that provides detailed information on protein powders, including types and benefits. The project emphasizes informative content with a clean layout.",
+          image: "img/project-1.jpg",
+          link: null,
+          techStack: "HTML, JavaScript, CSS"
+      },
+      {
+          title: "Personal Portfolio",
+          description: "A personal portfolio website built using HTML, CSS, JavaScript and Handlebars.js. It highlights skills, experience, and projects in a modern, responsive design.",
+          image: "img/project-2.jpg",
+          link: null,
+          techStack: "HTML, CSS, JavaScript, Handlebars.js"
+      },
+      {
+          title: "Tabs Component",
+          description: "A creative tab-switching interface with visually appealing animations and smooth transitions, built using JavaScript and CSS animations. This project highlights a seamless user experience with engaging animations for content navigation.",
+          image: "img/project-3.jpg",
+          link: null,
+          techStack: "HTML, JavaScript, CSS"
+      }
+  ];
+
+  function renderProjects(projects) {
+      const projectsContainer = $("#projects-container");
+      projectsContainer.empty();
+      var projectCard = ''
+      projects.forEach((project) => {
+           projectCard += `
+              <div class="col">
+                  <div class="card shadow shadow-md h-100">
+                      <img src="${project.image}" class="card-img-top" alt="${project.title}">
+                      <div class="card-body">
+                          <h5 class="card-title">${project.title}</h5>
+                          <p class="card-text">${project.description}</p>
+                          <p class="card-text"><strong>Tech Stack:</strong> ${project.techStack}</p>
+                          ${
+                              project.link
+                                  ? `<a href="${project.link}" class="btn btn-primary" target="_blank">View Project</a>`
+                                  : ""
+                          }
+                      </div>
+                  </div>
+              </div>
+          `;
+      });
+      projectsContainer.html(projectCard);
+    }
+
+  renderProjects(projectsData);
+});
+</script>
