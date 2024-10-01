@@ -1,0 +1,56 @@
+<div class="container about-section text-center">
+
+    <div class="row align-items-center mt-5">
+        <div class="col-md-4 offset-md-1">
+            <img src="img/human.jpg" alt="Your Photo" class="profile-pic img-fluid ratio ratio-1x1">
+        </div>
+        <div class="col-md-6 text-md-start mt-4 mt-md-0">
+            <h2 class="display-5 fw-bold">Hello, I'm Arshnoor Singh Punj</h2><div class="container my-5">
+                <h2 class="text-center mb-4 fw-bold">About Me</h2>
+                <p class="lead text-justify">
+                    Hello! I’m an Interactive Media Design student passionate about the web. I love blending creativity and technology to design unique and interactive online experiences.
+                </p>
+                <p class="lead text-justify">
+                    My expertise lies in building responsive websites with seamless user experiences. I'm skilled in HTML, CSS, and JavaScript, along with tools like Figma and Adobe XD for crafting beautiful interfaces.
+                </p>
+                <p class="lead text-justify">
+                    I’m always learning new techniques to keep up with the latest design trends and web technologies. Problem-solving and attention to detail are key aspects of my approach to design.
+                </p>
+                <p class="lead text-justify">
+                    Outside of coding, I enjoy exploring digital design and interactive media to bring ideas to life. I’m eager to contribute to meaningful projects that create engaging online experiences.
+                </p>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <a class="btn btn-outline-primary btn-lg cta-btn spa-link" data-page="contact.html">Get in Touch</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+      function loadPage(pageUrl) {
+          $.ajax({
+              url: pageUrl,
+              method: "GET",
+              success: function(data) {
+                  $('.app-container').html(data);
+              },
+              error: function() {
+                  $('.app-container').html('<p>Error loading the page. Please try again later.</p>');
+              }
+          });
+      }
+
+      $('.spa-link').on('click', function(event) {
+        event.preventDefault();
+        var page = $(this).data('page');
+        loadPage(page);
+    });
+  
+    });
+  </script>

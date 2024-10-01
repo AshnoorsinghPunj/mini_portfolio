@@ -1,0 +1,87 @@
+<style>
+    .header-top > a, .header-top > button{
+        cursor: pointer;
+    }
+    .nav-links{
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease-in-out;
+    }
+    .nav-links li{
+        transition: all 50ms ease-in-out;
+        cursor: pointer;
+    }
+    .nav-links li:hover{
+        color: red;
+    }
+    @media screen and (min-width: 768px) {
+        .nav-links{
+            height: auto;
+            overflow: visible;
+            transition: none;
+        }
+    }
+</style>
+<nav class="custom-navbar">
+    <div class="navbar-container d-flex flex-column flex-md-row justify-content-between align-items-center py-2 px-3">
+        <div class="header-top d-flex justify-content-between align-items-center w-100">
+            <a class="brand nav-link fw-bold fs-3 spa-link" data-page="home.html">
+                <img src="img/logo.png" alt="Logo" class="logo img-fluid"/>
+            </a>
+            <button class="toggle-btn btn fs-2 d-md-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="nav-links w-100">
+            <ul class="link-list list-unstyled d-flex flex-column flex-md-row justify-content-md-end gap-4 w-100">
+                <li><a class="nav-link spa-link active" data-page="home.html">Home</a></li>
+                <li><a class="nav-link spa-link" data-page="about.html">About</a></li>
+                <li><a class="nav-link spa-link" data-page="skills.html">Skills</a></li>
+                <li><a class="nav-link spa-link" data-page="projects.html">Projects</a></li>
+                <li><a class="nav-link spa-link" data-page="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<script>
+    $(document).ready(function() {
+    $(".toggle-btn").on("click", function() {
+        var navLinks = $(".nav-links");
+        var currentHeight = navLinks.height();
+
+        if (currentHeight === 0) {
+            navLinks.css("height", "auto");
+            var autoHeight = navLinks.prop("scrollHeight") + "px";
+            navLinks.css("height", "0");
+
+            setTimeout(function() {
+                navLinks.css("height", autoHeight);
+            }, 10);
+        } else {
+            navLinks.css("height", "0");
+        }
+    });
+
+    function loadPage(pageUrl) {
+        $.ajax({
+            url: pageUrl,
+            method: "GET",
+            success: function(data) {
+                $('.app-container').html(data);
+            },
+            error: function() {
+                $('.app-container').html('<p>Error loading the page. Please try again later.</p>');
+            }
+        });
+    }
+
+    $('.spa-link').on('click', function(event) {
+        event.preventDefault();
+        var page = $(this).data('page');
+        loadPage(page);
+    });
+
+    loadPage('home.html');
+});
+</script>

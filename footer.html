@@ -1,0 +1,63 @@
+<footer class="bg-dark text-light py-4 mt-5 rounded-top-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5 class="fw-bold mb-3">About Me</h5>
+                <p>
+                    I am a passionate web developer with a focus on creating interactive and responsive applications. My skills span across various technologies, ensuring a holistic approach to web development.
+                </p>
+            </div>
+            <div class="col-md-3">
+                <h5 class="fw-bold mb-3">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a class="text-light text-decoration-none cursor-pointer spa-link-footer" data-page="home.html">Home</a></li>
+                    <li><a class="text-light text-decoration-none cursor-pointer spa-link-footer" data-page="skills.html">Skills</a></li>
+                    <li><a class="text-light text-decoration-none cursor-pointer spa-link-footer" data-page="projects.html">Projects</a></li>
+                    <li><a class="text-light text-decoration-none cursor-pointer spa-link-footer" data-page="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5 class="fw-bold mb-3">Connect with Me</h5>
+                <a href="https://github.com/" class="text-light me-3" target="_blank">
+                    <i class="fab fa-github fa-lg"></i>
+                </a>
+                <a href="https://linkedin.com/in/" class="text-light" target="_blank">
+                    <i class="fab fa-linkedin fa-lg"></i>
+                </a>
+                <h5 class="fw-bold mt-4" id="#contact">Contact Me</h5>
+                <p class="mb-0">
+                    <a href="mailto:singharshnoor72@gmail.com" class="text-light text-decoration-none">Email: singharshnoor72@gmail.com</a>
+                </p>
+                <p class="mb-0">
+                    <a href="#" class="text-light text-decoration-none spa-link-footer" data-page="contact.html">Contact Form</a>
+                </p>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <p class="mb-0">&copy; 2024 Arshnoor Singh Punj. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    $(document).ready(function () {
+        function loadPage(pageUrl) {
+            $.ajax({
+                url: pageUrl,
+                method: "GET",
+                success: function(data) {
+                    $('.app-container').html(data);
+                },
+                error: function() {
+                    $('.app-container').html('<p>Error loading the page. Please try again later.</p>');
+                }
+            });
+        }
+
+        $('.spa-link-footer').on('click', function(event) {
+            event.preventDefault();
+            var page = $(this).data('page');
+            loadPage(page);
+        });
+    });
+</script>
