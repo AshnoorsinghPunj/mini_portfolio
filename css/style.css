@@ -1,0 +1,148 @@
+.rounded-top-4 {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+
+
+.homeImg{
+    border-radius: 100%;
+    width: clamp(250px, 50%, 300px);
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.about-section {
+    padding: 60px 0;
+}
+
+.logo {
+    max-width: 120px;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    max-width: 200px;
+}
+
+.mission-statement {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-top: 20px;
+}
+
+.cta-btn {
+    margin-top: 30px;
+}
+
+.projects-section {
+    padding: 60px 0;
+}
+
+.card-title {
+    font-size: 1.5rem;
+}
+
+.card-text {
+    font-size: 1rem;
+}
+
+.contact-section {
+    padding: 60px 0;
+}
+
+.loader {
+    display: none;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.important-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.skills-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+.skill-box{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.skill-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.skills-section i {
+    color: #3498db;
+}
+
+.skills-section h5 {
+    font-size: 1.25rem;
+    margin-top: 10px;
+}
+
+.skills-section p {
+    font-size: 1rem;
+}
+
+.services-section {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 60px 0;
+}
+
+.services-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.service-card {
+    background-color: #fff;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card h5 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.service-card p {
+    color: #777;
+}
+
+.service-card i {
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover i {
+    color: #ff5722;
+}
+
+.text-muted {
+    font-size: 1.1rem;
+}
+
